@@ -8,6 +8,7 @@ import lombok.Setter;
 @Getter
 @Setter
 
-public class AddData {
-    private int id;
+public class AddData<T1, T2> {
+    private T1 id;
+    private T2 name;
 }
