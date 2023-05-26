@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Generics with Exception Handling/Generics with Exception Handling.iml" filepath="$PROJECT_DIR$/Generics with Exception Handling/Generics with Exception Handling.iml" />
       <module fileurl="file://$PROJECT_DIR$/Java Advanced/Java Advanced.iml" filepath="$PROJECT_DIR$/Java Advanced/Java Advanced.iml" />
       <module fileurl="file://$PROJECT_DIR$/LLD Java.iml" filepath="$PROJECT_DIR$/LLD Java.iml" />
       <module fileurl="file://$PROJECT_DIR$/MultiThreading/MultiThreading.iml" filepath="$PROJECT_DIR$/MultiThreading/MultiThreading.iml" />
