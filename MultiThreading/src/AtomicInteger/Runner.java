@@ -2,6 +2,7 @@ package AtomicInteger;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 
 public class Runner {
@@ -9,6 +10,8 @@ public class Runner {
         Count count=new Count(0);
         Adder adder = new Adder(count);
         Subractor subractor=new Subractor(count);
+        Semaphore semaphore = new Semaphore(2);
+        semaphore.acquire();
 
         ExecutorService executorService = Executors.newFixedThreadPool(5);
         executorService.execute(adder);

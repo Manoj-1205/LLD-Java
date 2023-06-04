@@ -16,7 +16,7 @@ public class Pair<TYPE1, TYPE2> {
         if(left == null)
             throw new LeftValueNullException("Null value not allowed. Left value is null");
         else if(right == null)
-            throw new RightValueNullException();
+            throw new RightValueNullException();    
     }
 
     public Pair<TYPE2, TYPE1> swapValues(Pair<TYPE1, TYPE2> pair){
