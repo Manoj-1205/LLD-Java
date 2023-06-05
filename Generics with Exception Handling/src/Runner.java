@@ -9,7 +9,7 @@ public class Runner {
         //Disrupting the flow as it throws exception
         try {
             Pair<String, String> pair2 = new Pair<>(null, null);
-            System.out.println(pair2.getLeft() + " " + pair2.getRight());
+            System.out.println(pair2.getLeft() + "  " + pair2.getRight());
         }catch (LeftValueNullException le){
             System.out.println(le.getMessage());
         }catch (RightValueNullException re){
