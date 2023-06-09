@@ -1,0 +1,23 @@
+Problem: Design a system for an online bookstore that sells various books to customers. The system should handle
+inventory management, customer orders, and provide search functionality for customers to find books.
+
+Requirements:
+
+1. Customers should be able to browse books by title, author, genre, and other criteria.
+2. The system should maintain an inventory of books with information such as title, author, price, and availability.
+3. Customers should be able to add books to their cart and place orders.
+4. The system should track customer orders and provide order history.
+5. The system should handle multiple customers simultaneously and ensure data consistency.
+
+Your task:
+Design a system for the online bookstore that adheres to SOLID principles and promotes code reusability, maintainability,
+ and extensibility. Consider how to organize the classes, define their responsibilities, and handle interactions between
+  different components.
+
+You can start by outlining the high-level classes and their relationships, identifying potential abstractions or
+interfaces, and considering how to handle various operations such as book search, inventory management, and order processing.
+ You may also think about how to incorporate other SOLID principles like the Single Responsibility Principle (SRP)
+ and the Open/Closed Principle (OCP) to make the system modular and easily extendable.
+
+Once you've designed the system, you can provide an overview of the classes, their responsibilities,
+and how they interact with each other to fulfill the requirements of the online bookstore.
