@@ -17,6 +17,8 @@ public class Student {
         this.email = email;
     }
 
-
+    public void greet(String msg){
+        System.out.println("Hello "+msg);
+    }
 
 }

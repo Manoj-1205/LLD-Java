@@ -1,10 +1,11 @@
 package Reflections;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 public class Main {
-    public static void main(String[] args) throws ClassNotFoundException {
+    public static void main(String[] args) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         Student student = new Student(12, "Manoj", "abc@gmail.com");
 
         Class clazz = Class.forName("Reflections.Student");
@@ -20,6 +21,11 @@ public class Main {
         for(Field field : fields){
             System.out.println(field.getType().getSimpleName()+" "+field.getName());
         }
+
+        Class cl = Student.class;
+
+        Method myMethod = cl.getMethod("greet", String.class);
+        myMethod.invoke(student, "Samprittha");
 
 
     }
