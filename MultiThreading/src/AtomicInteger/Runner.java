@@ -13,6 +13,7 @@ public class Runner {
         Semaphore semaphore = new Semaphore(2);
         semaphore.acquire();
 
+        Thread t=new Thread(adder);
         ExecutorService executorService = Executors.newFixedThreadPool(5);
         executorService.execute(adder);
         executorService.execute(subractor);
