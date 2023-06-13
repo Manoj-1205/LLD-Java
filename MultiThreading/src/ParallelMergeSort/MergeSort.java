@@ -3,28 +3,40 @@ package ParallelMergeSort;
 import java.security.spec.RSAOtherPrimeInfo;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.*;
 
-public class MergeSort {
-
+public class MergeSort implements Callable<List<Integer>> {
+    List<Integer> list=new ArrayList<>();
+    ExecutorService executorService;
+    MergeSort(List<Integer> list, ExecutorService executorService){
+        this.list = list;
+        this.executorService = executorService;
+    }
     //1 2 3 4 5 6 7 8 9 10
-    public void mergeSort(List<Integer> list){
-        if(list.size() <= 1 ) return;
+    public List<Integer> call() throws ExecutionException, InterruptedException {
+        if(list.size() <= 1 ) return list;
         int mid = list.size()/2;
-        List<Integer> list1 = list.subList(0, mid);
-        List<Integer> list2 = list.subList(mid, list.size());
+        List<Integer> left = list.subList(0, mid);
+        List<Integer> right = list.subList(mid, list.size());
+//        System.out.println("Left "+left);
+//        System.out.println("Right "+right);
+        MergeSort leftSort = new MergeSort(left, executorService);
+        MergeSort rightSort = new MergeSort(right, executorService);
 
-        mergeSort(list1);
-        mergeSort(list2);
+        Future<List<Integer>> l1 = executorService.submit(leftSort);
+        Future<List<Integer>> l2 = executorService.submit(rightSort);
+//        System.out.println("FUT "+l1.);
+//        System.out.println("FUT "+l2.get());
 
-//        System.out.println(list1);
-//        System.out.println(list2);
-
-        merge(list1, list2, list);
+        return merge(l1, l2);
 
 
     }
 
-    public void merge(List<Integer> l1, List<Integer> l2, List<Integer> finalList){
+    public List<Integer> merge(Future<List<Integer>> f1, Future<List<Integer>> f2 ) throws ExecutionException, InterruptedException {
+//        System.out.println("inside merge function");
+        List<Integer> l1 = f1.get();
+        List<Integer> l2 = f2.get();
         int n=l1.size();
         int m=l2.size();
         int p1=0, p2=0;
@@ -47,6 +59,8 @@ public class MergeSort {
             list.add(l2.get(p2));
             p2++;
         }
+//        System.out.println("Sorted List "+list);
+        return list;
     }
 
 }
